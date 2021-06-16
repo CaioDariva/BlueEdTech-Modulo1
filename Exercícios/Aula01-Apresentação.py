@@ -1,1 +1,0 @@
-print('Foi criado um programa aleatório com blocos em um site e foi feita uma apresentação individual')
