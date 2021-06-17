@@ -32,5 +32,6 @@ print(f'A lista em ordem decrescente é {dec}.')
 ## Mesmo exercício do desafio, mas agora com lista, vamos pensar como seria.
 
 
+
 ## 3- Faça um jogo da forca. O programa terá uma lista de palavras lidas de um arquivo texto e escolherá uma 
 ## aleatoriamente. O jogador poderá errar 6 vezes antes de ser enforcado.
