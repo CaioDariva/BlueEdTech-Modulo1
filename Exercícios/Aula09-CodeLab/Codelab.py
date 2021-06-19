@@ -55,45 +55,28 @@
 ## palpites.O programa vai perguntar quantos jogos serão gerados e vai sortear 6
 ## números entre 1 e 60 para cada jogo, cadastrando tudo em uma lista composta.
 
-# import random
-# n1 = random.randint(1,60)
-# n2 = random.randint(1,60)
-# n3 = random.randint(1,60)
-# n4 = random.randint(1,60)
-# n5 = random.randint(1,60)
-# n6 = random.randint(1,60)
-
-
-# num_jogos = 0
-# lista = list()
-# n = random.randint(1,60)
-
-# for i in range(0,5):
-#     lista.apend(i)
-
-# print(lista)
-# -------------------------
-
+## Minha tentativa de resolução
 
 import random
 
 cont = 0
 cont2 = 0
 jogo = list()
-num_jogos = 0
+listageral = list()
 
+num_jogos = int(input('Quantos jogos você quer fazer?'))
 
-while True:
-    n = random.randint(1,60)
-    if cont <= 5:
-        if n not in jogo:
-            cont += 1
-            jogo.append(n)
-    else:
-        break
-jogo.sort()
+while cont2 <= num_jogos:
+    while True:
+        cont2 += 1
+        n = random.randint(1,60)
+        if cont <= 5:
+            if n not in jogo:
+                cont += 1
+                jogo.append(n)
+        listageral.append(jogo)
 
+print(listageral)
 
+## Correção do professor aula 10
 
-
-print(jogo)
