@@ -44,25 +44,35 @@
 
 lista_geral = list()
 contador = 1
-
+listaaltura = list()
 for i in range(contador):
     lista = list()
     nome = str(input('Digite seu nome: '))
     altura = float(input('Digite sua altura: ').replace(',' , '.'))
     lista.append(nome)
     lista.append(altura)
+    listaaltura.append(altura)
     lista_geral.append(lista[:])
-    cont = str(input('Você deseja continuar?')).upper().replace(Ã , A).replace (' ' , '')
+    cont = str(input('Você deseja continuar?')).upper().replace('Ã' , 'A').replace (' ' , '')
     while cont == 'SIM':
-        contador += 1
         for i in range(contador):
             lista = list()
             nome = str(input('Digite seu nome: '))
             altura = float(input('Digite sua altura: ').replace(',' , '.'))
             lista.append(nome)
             lista.append(altura)
+            listaaltura.append(altura)
             lista_geral.append(lista[:])
-    else:
-        break
+            cont = str(input('Você deseja continuar?')).upper().replace('Ã' , 'A').replace (' ' , '')
+            contador += 1        
+            if cont == 'NAO':
+                break
+
+listaaltura.sort()
 
 print()
+print(lista_geral)
+print()
+print(listaaltura)
+print('A menor altura é:', (listaaltura[0]))
+print('A maior altura é:', (listaaltura[contador-1]))

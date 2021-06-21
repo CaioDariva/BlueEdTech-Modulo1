@@ -34,4 +34,4 @@ print('Seus jogos: ')
 contador = 0
 for j in jogos_total:
     contador += 1
-    print(f' Jogo {contador}: {j}') # vai printar um em cada linha 
+    print(f' Jogo {contador}: {j}') # vai printar um em cada linha
