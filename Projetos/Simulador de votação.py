@@ -1,70 +1,62 @@
-# Crie um programa que simule um sistema de votação, ele deve receber votos até que o usuário diga que não tem 
-# mais ninguém para votar, esse programa precisa ter duas funções: 
+def autoriza_voto(ano):
+    if ano > 2005:
+        print('O eleitor não está apto a votar!')
+    elif ano == 2005 or ano == 2004:
+        print('O voto é Opcional!')
+        return 'ok'
+    elif ano < 1951:
+        print('O voto é Opcional!')
+        return 'ok'
+    elif ano >= 1951 and ano < 2004:
+        print('O voto é Obrigatório!')
+        return 'ok'
 
-# A 1° Função precisa ser chamada autoriza_voto() ela vai receber como parâmetro o ano de nascimento de uma 
-# pessoa que será digitado pelo usuário, retornando um valor literal indicando se uma pessoa tem voto NEGADO, 
-# OPCIONAL e OBRIGATÓRIO nas eleições. 
+candidato1 = []
+candidato2 = []
+candidato3 = []
+nulo = []
+branco = []
 
-# A 2° Função será a votacao(), ela vai receber dois parâmetros, autorização (que virá da função 
-# autoriza_voto()) e o voto que é o número que a pessoa votou. 
-# Se ela não puder votar, a 2° função terá que retornar “Você não pode votar”, caso o contrário a 2° função 
-# deve validar o número que a pessoa escolheu, ela pode escolher de 1 a 5 (crie 3 candidatos para a votação): 
-# 1, 2 ou 3 - Votos para os respectivos candidatos  
-# 4- Voto Nulo 
-# 5 - Voto em Branco 
-
-# Sua função votacao() tem que calcular e mostrar: 
-# O total de votos para cada candidato; 
-# O total de votos nulos; 
-# O total de votos em branco; 
-# Qual candidato venceu a votação. 
-
-def autoriza_votos(nascimento):
-        if nascimento > 2005:
-            return 'NEGADO' 
-        elif nascimento == 2004 or nascimento == 2005:
-            return 'OPCIONAL'
-        elif nascimento < 1951:
-            return 'OPCIONAL'
-        else:
-            return 'OBRIGATÓRIO'
-
-def votacao(autorizacao, voto):    
-    if autorizacao == 'NEGADO':
-        print('Você não pode votar')
-    if autorizacao == 'OBRIGATÓRIO' or autorizacao == 'OPCIONAL':
-        return 'Voto Validado'
-
-jose = 0
-joao = 0
-jamily = 0
-nulo = 0
-branco = 0
-
-continuar = 'sim'
-while continuar == 'sim':
-    print('Vamos votar!')
+def votacao(validade, voto):
+    if cont == 'sim':
+        if validade == 'ok':
+            pass
+        if voto == 1:
+            candidato1.append(1)
+        elif voto == 2:
+            candidato2.append(1)
+        elif voto == 3:
+            candidato3.append(1)
+        elif voto == 4:
+            nulo.append(1)
+        elif voto == 5:
+            branco.append(1)
+    else:
+        print(f'O candidato 1 teve {sum(candidato1)} voto(s).\nO candidato 2 teve {sum(candidato2)} voto(s).\nO candidato 3 teve {sum(candidato3)} voto(s).\n{sum(nulo)} voto(s) nulo(s).\n{sum(branco)} voto(s) em branco.')
+        if sum(candidato1) > sum(candidato2) and sum(candidato1) > sum(candidato3):
+            print('O candidato 1 venceu as eleições.')
+        elif sum(candidato2) > sum(candidato3) and sum(candidato2) > sum(candidato1):
+            print('O candidato 2 venceu as eleições.')
+        elif sum(candidato3) > sum(candidato2) and sum(candidato3) > sum(candidato1):
+            print('O candidato 3 venceu as eleições.')
+        elif sum(candidato1) == sum(candidato2) and sum(candidato2) == sum(candidato3):
+            print('Houve um empate triplo.')
+        elif sum(candidato1) == sum(candidato2) and sum(candidato2) != sum(candidato3):
+            print('Houve um empate entre os candidatos 1 e 2.')
+        elif sum(candidato1) == sum(candidato3) and sum(candidato3) != sum(candidato2):
+            print('Houve um empate entre os candidatos 1 e 3.')
+        elif sum(candidato2) == sum(candidato3) and sum(candidato3) != sum(candidato1):
+            print('Houve um empate entre os candidatos 2 e 3.')
+            
+cont = 'sim'
+while cont == 'sim':
+    anoNascimento = int(input('Vamos Votar!\nQual é o ano de nascimento do eleitor?\n'))
     print()
-    ano = int(input('Primeiro precisamos saber em que ano você nasceu?\n'))
-    voto = int(input('Agora escolha o seu voto!\nDigite 1 para João.\nDigite 2 para José.\nDigite 3 para Jandira.\nDigite 4 para anular seu voto.\nDigite 5 para votar em branco.\n'))
-    while voto > 5 or voto < 1:
-        voto = int(input('Inválido!\nDigite 1 para João.\nDigite 2 para José.\nDigite 3 para Jandira.\nDigite 4 para anular seu voto.\nDigite 5 para votar em branco.\n'))
-    validacao = votacao(autoriza_votos(ano), voto)
-    if validacao == 'Voto Validado' and voto == 1:
-        joao += 1
-    elif validacao == 'Voto Validado' and voto == 2:
-        jose += 1
-    elif validacao == 'Voto Validado' and voto == 3:
-        jamily += 1
-    elif validacao == 'Voto Validado' and voto == 4:
-        nulo += 1
-    elif validacao == 'Voto Validado' and voto == 5:
-        branco += 1
-    continuar = str(input('Ainda tem mais eleitores para votar depois de você?')).lower().replace(' ','').replace('ã' , 'a')
+    if autoriza_voto(anoNascimento) == 'ok':
+        validade = 'ok'
+        voto = int(input('Vote 1 para Candidato 1.\nVote 2 para Candidato 2.\nVote 3 para Candidato 3.\nVote 4 para voto Nulo.\nVote 5 para voto em Branco.\nQual será o seu voto?\n'))
+        print()
+        votacao(validade, voto)
+    cont = str(input('Você deseja continuar com a votação?\n')).lower().replace('ã' , 'a').replace(' ' , '')
 
-if jose > joao and jose > jamily:
-    print(f'João obteve {joao} votos, José obteve {jose} votos e Jandira obteve {jamily} votos.\nO total de votos nulos foi: {nulo}.\nO total de votos em branco foi: {branco}.\nJosé venceu as eleições!')
-elif joao > jose and jose > jamily:
-    print(f'João obteve {joao} votos, José obteve {jose} votos e Jandira obteve {jamily} votos.\nO total de votos nulos foi: {nulo}.\nO total de votos em branco foi: {branco}.\nJoão venceu as eleições!')
-elif jamily > jose and joao:
-    print(f'João obteve {joao} votos, José obteve {jose} votos e Jandira obteve {jamily} votos.\nO total de votos nulos foi: {nulo}.\nO total de votos em branco foi: {branco}.\nJandira venceu as eleições!')
+votacao(validade, voto)
