@@ -9,6 +9,6 @@ if imc < 24.9 and imc >= 18.5:
 if imc < 29.9 and imc >= 25:
   print(f"Seu IMC é {imc} e sua classificação é SOBREPESO")
 if imc < 39.9 and imc >= 30:
-  print(f"Seu IMC é {imc} e sua classificação é OBESO")
+  print(f"Seu IMC é {imc} e sua classificação    é OBESO")
 if imc > 40:
   print(f"Seu IMC é {imc} e   sua classificação é OBESIDADE GRAVE, SE CUIDE!")
