@@ -12,3 +12,5 @@ if imc < 39.9 and imc >= 30:
   print(f"Seu IMC é {imc} e sua classificação    é OBESO")
 if imc > 40:
   print(f"Seu IMC é {imc} e   sua classificação é OBESIDADE GRAVE, SE CUIDE!")
+if imc >1000:
+  print("isso é um teste")
